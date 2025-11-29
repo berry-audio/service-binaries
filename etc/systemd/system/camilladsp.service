@@ -1,0 +1,14 @@
+# /etc/systemd/system/camilladsp.service
+[Unit]
+Description=CamillaDSP Audio Processor
+After=sound.target
+
+[Service]
+ExecStart=/usr/local/bin/camilladsp /home/pi/builds/camilladsp/configs/camilladsp.yml -s /home/pi/builds/camilladsp/statefile.yml -a 0.0.0.0 -p 1234
+Restart=always
+RestartSec=2
+User=pi
+Group=audio
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,17 @@
+[Unit]
+Description=CamillaDSP GUI
+After=network.target
+
+[Service]
+# The Python interpreter inside your virtualenv
+ExecStart=/home/pi/env/bin/python /home/pi/builds/camilladsp/camillagui/main.py
+
+# Optional but recommended:
+WorkingDirectory=/home/pi/builds/camilladsp/camillagui/
+Environment="PATH=/home/pi/env/bin"
+Restart=always
+RestartSec=2
+User=pi
+
+[Install]
+WantedBy=multi-user.target

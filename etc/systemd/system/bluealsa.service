@@ -1,0 +1,13 @@
+[Unit]
+Description=BlueALSA
+After=bluetooth.service
+
+[Service]
+ExecStart=/usr/bin/bluealsad -p a2dp-sink
+Restart=always
+#User=bluealsa
+User=root
+Group=audio
+
+[Install]
+WantedBy=multi-user.target
